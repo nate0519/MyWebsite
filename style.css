@@ -1,0 +1,299 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+/*轉場特效*/
+@keyframes scaleup{
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+/*#transition{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    opacity: 1;
+    animation: scaleup 2s ease-in-out forwards;
+}*/
+#transition{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#loaded{
+    opacity: 0;
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+}
+#progress-container{
+    width: 50%;
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#progress-bar{
+    position: relative;
+    width: 0;
+    height: 100%;
+    background-color: #bc995c;
+    transition: width 0.2s ease;
+}
+#progress-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+    animation: scaleup 2s ease-in-out forwards;
+}
+.hidden2{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+/*頁首*/
+header{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+   background-color: rgba(0, 0, 0, 0.8);
+   position: fixed;
+   z-index: 900;
+}
+.scroll{
+    scroll-behavior: smooth;
+    
+    height: 100vh;
+}
+header ul{
+    position: absolute;
+    right: 5vw;
+}
+header li{
+    display: inline;
+    margin-right: 3vw;
+}
+header a{
+    font-size: 20px;
+    color: aliceblue;
+    line-height: 80px;
+    text-decoration: none;
+}
+header a:hover{
+    text-decoration: underline;
+}
+h1{
+    color: aliceblue;
+    line-height: 80px;
+}
+/*歡迎畫面*/
+.web{
+    position: relative;
+    height: 120vh;
+    background-color: black;
+    z-index: -2;
+}
+#web{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120vh;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    transition: background-image 1s ease-in-out, opacity 1s ease-in-out;    
+    z-index: -1;
+    opacity: 1;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.web-text{
+    width: 100%;
+    top: 40%;
+    position: absolute;    
+}
+.web-text h2{
+    color: rgb(249, 217, 148);
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.web-text p{
+    color: azure;
+    font-size: 30px;
+    font-weight: bold; 
+}
+
+
+/*關於我*/
+.intro{
+    background-color: beige;
+    display: flex;
+    height: 100vh;
+}
+.intro img{
+    width: 50%;
+    height: 100%;
+}
+/*相片集*/
+.Porfolio{
+    background-color: beige;
+}
+.Porfolio h2{
+    font-size: 40px;
+    line-height: 60px;
+}
+.photo-gallery{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 80px 40px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+.card1{
+    position: relative;
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+}
+.photo{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.img1{
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    
+}
+.img1:hover{
+    transition: 700ms;
+    opacity: 1;
+}
+#lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,visibility 0.3s ease;
+}
+#lightbox.visible{
+    opacity: 1;
+    visibility: visible;
+}
+#lightbox-img{
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.nav-button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+.nav-button:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+#prev-photo{
+    left: 10px;
+}
+#next-photo{
+    right: 10px;
+}
+#close-lightbox{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: rgb(101, 99, 99);
+}
+.card2{
+    height: 50px;
+    width: 250px;
+    display: flex;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+.card img{
+    height: 100%;
+    width: 25%;
+}
+.sm{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sm p{
+    font-size: 20px;
+    color: antiquewhite;
+}
