@@ -58,34 +58,70 @@ document.addEventListener("DOMContentLoaded", function () {
     //照片檢視器
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
     const closeLightbox = document.getElementById('close-lightbox');
     const prevPhoto = document.getElementById('prev-photo');
     const nextPhoto = document.getElementById('next-photo');
     const photos = document.querySelectorAll('.photo');
+    const countPhoto = document.getElementById('count-photo');
     let photoIndex = 0;
+    let count = 0;
+    function enterFullScreen(){
+        if(lightboxImg.requestFullscreen){
+            lightboxImg.requestFullscreen();
+        }else if(lightboxImg.webkitRequestFullscreen){
+            lightboxImg.webkitRequestFullscreen();
+        }else if(lightboxImg.msRequestFullscreen){
+            lightboxImg.msRequestFullscreen();
+        }
+    }
+    function exitFullScreen(){
+        if(document.exitFullscreen){
+            document.exitFullScreen();
+        }else if(document.webkitExitFullscreen){
+            document.webkitExitFullscreen();
+        }else if(document.msExitFullsreen){
+            document.msExitFullsreen();
+        }
+    }
+    function toggleFullScreen(){
+        if(!document.fullscreenElement){
+            enterFullScreen();
+        }else{
+            exitFullScreen();
+        }
+    }
     function showPrevImage(){
         photoIndex = (photoIndex - 1 + photos.length) % photos.length;
         lightboxImg.src = photos[photoIndex].src;
+        countPhoto.textContent = (photoIndex + 1) + '/' + photos.length;
     }
     function showNextImage(){
-        photoIndex = (photoIndex+1) % photos.length;
+        photoIndex = (photoIndex + 1) % photos.length;
         lightboxImg.src = photos[photoIndex].src;
+        countPhoto.textContent = (photoIndex + 1) + '/' + photos.length;
     }
     photos.forEach((photo,index) =>{
         photo.addEventListener('click', () =>{
             photoIndex = index;
+            count = photoIndex+1;
             lightboxImg.src = photo.src;
+            countPhoto.textContent = count + '/' + photos.length;
             lightbox.classList.add('visible');
         });
     });
+    //按鈕關閉照片檢視器
     closeLightbox.addEventListener('click', ()=>{
         lightbox.classList.remove('visible');
     });
+    //點擊開啟照片檢視器
     lightbox.addEventListener('click', (e) =>{
         if(e.target === lightbox){
             lightbox.classList.remove('visible');
         }
     });
+    //按鈕切換全螢幕
+    fullscreenBtn.addEventListener('click',toggleFullScreen);
     //ESC關閉照片檢視器
     document.addEventListener('keydown', (e)=>{
         if(e.key === 'Escape'){
@@ -93,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     //左右鍵控制照片
-   
     document.addEventListener('keydown', (e)=> {
         if(e.key === 'ArrowRight'){
             showNextImage();
