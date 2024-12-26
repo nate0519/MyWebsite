@@ -54,16 +54,18 @@ document.addEventListener("DOMContentLoaded", function () {
     carousel.style.backgroundImage = images[currentIndex];
 
     setInterval(backgroundchange,5000);
-    //下拉式選單
-    const dropdownButton = document.querySelector('.dropdown-btn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    dropdownButton.addEventListener('click',()=>{
-        dropdownMenu.classList.toggle('show');
+    //側邊選單
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    menuToggle.addEventListener('click', ()=>{
+        sideMenu.classList.toggle('open');
+        menuOverlay.classList.toggle('visible');
     });
-    document.addEventListener('click',(e)=>{
-        if(!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)){
-            dropdownMenu.classList.remove('show');
-        }
+    menuOverlay.addEventListener('click',()=>{
+        sideMenu.classList.remove('open');
+        menuOverlay.classList.remove('visible');
     });
 
     //照片檢視器
