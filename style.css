@@ -86,26 +86,76 @@ header{
    position: fixed;
    z-index: 900;
 }
-.scroll{
-    scroll-behavior: smooth;
-    
-    height: 100vh;
-}
-header ul{
+.dropdown{
+    left: 1vw;
+    line-height: 80px;
     position: absolute;
-    right: 5vw;
+    display: inline-block;
 }
-header li{
+.dropdown-btn{
+    
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.dropdown-btn:hover{
+    background-color: #2980b9;
+}
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1002;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3 ease, transform 0.3 ease;
+}
+.dropdown-menu li{
+    border-bottom: 1px solid #ddd;
+}
+.dropdown-menu li:list-child{
+    border-bottom: none;
+}
+.dropdown-menu li a{
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+}
+.dropdown-menu li a:hover{
+    background-color: #f1f1f1;
+}
+.dropdown-menu.show{
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.navgation{
+    position: absolute;
+    right: 4vw;
+}
+.navgation li{
     display: inline;
     margin-right: 3vw;
 }
-header a{
+.navgation a{
     font-size: 20px;
     color: aliceblue;
     line-height: 80px;
     text-decoration: none;
 }
-header a:hover{
+.navgation a:hover{
     text-decoration: underline;
 }
 h1{

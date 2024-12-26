@@ -54,6 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
     carousel.style.backgroundImage = images[currentIndex];
 
     setInterval(backgroundchange,5000);
+    //下拉式選單
+    const dropdownButton = document.querySelector('.dropdown-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    dropdownButton.addEventListener('click',()=>{
+        dropdownMenu.classList.toggle('show');
+    });
+    document.addEventListener('click',(e)=>{
+        if(!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)){
+            dropdownMenu.classList.remove('show');
+        }
+    });
 
     //照片檢視器
     const lightbox = document.getElementById('lightbox');
