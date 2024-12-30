@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById('menu-toggle');
     const sideMenu = document.getElementById('side-menu');
     const menuOverlay = document.getElementById('menu-overlay');
+    const pageToList = document.getElementById('page_to_list');
 
     menuToggle.addEventListener('click', ()=>{
         sideMenu.classList.toggle('open');
@@ -66,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
     menuOverlay.addEventListener('click',()=>{
         sideMenu.classList.remove('open');
         menuOverlay.classList.remove('visible');
+    });
+    pageToList.addEventListener('click', ()=>{
+        window.location.href = "list.html";
     });
 
     //照片檢視器

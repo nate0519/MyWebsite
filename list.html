@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代辦清單</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .completed{
+            text-decoration: line-through;
+            color: gray;
+        }
+        button{
+            margin-left: 5px;
+        }
+    </style>        
+</head>
+<body>
+    <div id="app">
+        <h1>代辦清單</h1>
+        <input type="text" v-model="newTask" placeholder="新增任務">
+        <button @click="addTask">新增</button>
+
+        <ul>
+            <li v-for="(task, index) in tasks" :key="index">
+                <span :class="{ completed: task.completed }" @click="toggleComplete(index)">
+                    {{ task.name }}
+                </span>
+                <button @click="deleteTask(index)">刪除</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    newTask: '',
+                    tasks: []
+                };
+            },
+            methods: {
+                addTask() {
+                    if (this.newTask.trim() !== '') {
+                        this.tasks.push({ name: this.newTask, completed: false});
+                        this.newTask = '';
+                    }
+                },
+                toggleComplete(index){
+                    this.tasks[index].completed = !this.tasks[index].completed;
+                },
+                deleteTask(index){
+                    this.tasks.splice(index, 1);
+                }
+            }
+        });
+    
+    
+        app.mount('#app');
+    </script>
+</body>
+</html>
