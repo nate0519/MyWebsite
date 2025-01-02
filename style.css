@@ -248,6 +248,20 @@ h1{
     width: 50%;
     height: 100%;
 }
+.intro_text{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.intro_text ul{
+    color: rgb(114, 114, 114);
+    font-size: 5vh;
+    line-height: 10vh;
+    list-style: none
+}
 /*相片集*/
 .Porfolio{
     background-color: beige;
@@ -381,11 +395,12 @@ footer{
     border: 2px solid white;
     border-radius: 20px;
 }
-.card img{
+.social_media{
     height: 100%;
     width: 25%;
 }
 .sm{
+    height: 50%;
     width: 75%;
     display: flex;
     flex-direction: column;
@@ -395,4 +410,85 @@ footer{
 .sm p{
     font-size: 20px;
     color: antiquewhite;
+}
+/*手機版本比例*/
+@media (max-width:375px){
+    .menu ul li p{
+        font-size: 12px;  
+    }
+    #mylogo{
+        position: absolute;
+        top: 5px;
+        left: 30vw;
+        
+    } 
+    h1{
+        opacity: 0;
+    }
+    .navgation{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .web{
+        position: relative;
+        height: 60vh;
+        background-color: black;
+        z-index: -2;
+    }
+    #web{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60vh;
+    }
+    .web-text{
+        width: 100%;
+        top: 40%;
+        position: absolute;    
+    }
+    .web-text h2{
+        font-size: 40px;
+    }
+    .web-text p{
+        font-size: 20px;
+    }
+    .intro{
+        display: flex;
+        height: 40vh;
+    }
+    .intro img{
+        width: 50%;
+        height: 100%;
+    }
+    .intro_text{
+        width: 50%;
+        height: 100%;
+    }
+    .intro_text ul{
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .Porfolio h2{
+        font-size: 24px;
+        line-height: 60px;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+    .card2{
+        flex-direction: column;
+        height: 50px;
+        width: 30vw;
+        align-items: center;
+        justify-content: center;
+    }
+    .social_media{
+        height: 6vh;
+        width: 6vw;
+    }
+    .sm p{
+        font-size: 0.5rem;
+    }
 }
