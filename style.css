@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
 /*轉場特效*/
 @keyframes scaleup{
     0% {
@@ -416,14 +419,19 @@ footer{
 }
 /*手機版本比例*/
 @media (max-width:768px){
+    .loaded-container{
+        width: 50%;
+    }
+    #progress-container{
+        width: 75%;
+    }
     .menu ul li p{
         font-size: 12px;  
     }
     #mylogo{
         position: absolute;
         top: 5px;
-        left: 30vw;
-        
+        left: 50vw;
     } 
     h1{
         opacity: 0;
@@ -451,10 +459,10 @@ footer{
         position: absolute;    
     }
     .web-text h2{
-        font-size: 40px;
+        font-size: 36px;
     }
     .web-text p{
-        font-size: 20px;
+        font-size: 18px;
     }
     .intro{
         display: flex;
