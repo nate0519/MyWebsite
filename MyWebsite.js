@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.getElementById("web");
 
     const images = [
-        'url("background/IMG_1644.JPG")',
-        'url("background/DSC_0154.JPG")',
-        'url("background/IMG_2102.JPG")'
+        'url("background/IMG_1644.webp")',
+        'url("background/DSC_0154.webp")',
+        'url("background/IMG_2102.webp")'
     ];
 
     let currentIndex = 0;
