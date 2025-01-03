@@ -415,7 +415,7 @@ footer{
     color: antiquewhite;
 }
 /*手機版本比例*/
-@media (max-width:480px){
+@media (max-width:768px){
     .menu ul li p{
         font-size: 12px;  
     }
