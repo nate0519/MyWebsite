@@ -10,28 +10,55 @@
             font-family: Arial, sans-serif;
             max-width: 500px;
             margin: 50px auto;
+            background-color: antiquewhite;
+        }
+        .task{
+            width: 100%;
+            display: flex;
+        }
+        #newtask{
+            border-color: white;
+            border-radius: 5px;
+            height: 5vh;
+            width: 30vw;
         }
         .completed{
             text-decoration: line-through;
             color: gray;
         }
-        button{
+        #add-btn{
+            background-color: rgb(201, 201, 201);
+            border-color: rgba(255, 255, 255, 0);
+            height: 3rem;
+            width: 3rem;
+            border-radius: 2rem;
             margin-left: 5px;
+            font-size: 1.8rem;
+        }
+        #delete-btn{
+            margin-left: 5px;
+        }
+        button:hover{
+            background-color: aliceblue;
+            opacity: 0.8;
         }
     </style>        
 </head>
 <body>
     <div id="app">
         <h1>代辦清單</h1>
-        <input type="text" v-model="newTask" placeholder="新增任務">
-        <button @click="addTask">新增</button>
+        <div class="task">
+            <input id="newtask" type="text" v-model="newTask" placeholder="新增任務">
+            <button id="add-btn" @click="addTask">+</button>
+        </div>
+        
 
         <ul>
             <li v-for="(task, index) in tasks" :key="index">
                 <span :class="{ completed: task.completed }" @click="toggleComplete(index)">
                     {{ task.name }}
                 </span>
-                <button @click="deleteTask(index)">刪除</button>
+                <button id="delete-btn" @click="deleteTask(index)">刪除</button>
             </li>
         </ul>
     </div>
